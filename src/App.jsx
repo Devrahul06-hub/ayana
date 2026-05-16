@@ -41,18 +41,56 @@ const globalCss = `
   @keyframes pulse-dot { 0%,100% { opacity:0.4; transform:scale(1); } 50% { opacity:1; transform:scale(1.3); } }
   @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
   .hide-mobile { display: flex; }
-  .show-mobile { display: none; }
+  .show-mobile { display: none; align-items: center; justify-content: center; }
+  .section-pad { padding-left: 3rem; padding-right: 3rem; }
+  .nav-pad { padding-left: 3rem; padding-right: 3rem; }
+
   @media (max-width: 900px) {
     .hide-mobile { display: none !important; }
     .show-mobile { display: flex !important; }
-    .grid-2 { grid-template-columns: 1fr !important; }
-    .grid-hero { grid-template-columns: 1fr !important; }
-    .grid-contact { grid-template-columns: 1fr !important; }
-    .section-pad { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
-    .nav-pad { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
-    .hero-stats { display: none !important; }
-    .hero-visual { display: none !important; }
+    .nav-pad { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+
+    .hero-section { padding-left: 1.25rem !important; padding-right: 1.25rem !important; min-height: auto !important; padding-bottom: 2rem !important; }
+    .hero-eyebrow { padding-top: 6rem !important; gap: 0.75rem !important; }
+    .hero-inner { flex-direction: column !important; align-items: stretch !important; gap: 2rem !important; padding: 1.5rem 0 2rem !important; }
+    .hero-copy { max-width: 100% !important; }
+    .hero-title { font-size: clamp(2.25rem, 11vw, 3.75rem) !important; margin-bottom: 1.25rem !important; }
+    .hero-desc { max-width: 100% !important; font-size: 1rem !important; margin-bottom: 1.75rem !important; }
+    .hero-cta { width: 100%; }
+    .hero-cta button { flex: 1; justify-content: center; min-width: 0; }
+    .hero-stats { display: flex !important; flex-direction: row !important; flex-wrap: wrap !important; width: 100% !important; gap: 0.75rem !important; }
+    .hero-stat-card { flex: 1 1 calc(50% - 0.375rem) !important; min-width: 0 !important; padding: 1rem 1.125rem !important; }
+    .hero-stat-card p:first-child { font-size: 1.75rem !important; }
+    .hero-footer { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; padding-bottom: 1.5rem !important; }
+    .hero-footer-marquee { max-width: 100% !important; width: 100% !important; }
+
+    .section-pad { padding: 4rem 1.25rem !important; }
+    .section-header-grid { grid-template-columns: 1fr !important; gap: 1.25rem !important; margin-bottom: 2.5rem !important; }
     .services-grid { grid-template-columns: 1fr !important; }
+    .service-card { padding: 2rem 1.25rem !important; }
+    .why-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; margin-top: 2.5rem !important; }
+    .why-features-grid { grid-template-columns: 1fr !important; }
+    .work-header { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; margin-bottom: 2rem !important; }
+    .work-grid { grid-template-columns: 1fr !important; gap: 1.25rem !important; }
+    .process-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1rem !important; margin-top: 2rem !important; }
+    .testimonials-grid { grid-template-columns: 1fr !important; }
+    .contact-grid { grid-template-columns: 1fr !important; gap: 2rem !important; margin-top: 2.5rem !important; }
+    .contact-aside { position: static !important; top: auto !important; }
+    .form-row { grid-template-columns: 1fr !important; }
+    .form-actions { flex-direction: column !important; align-items: stretch !important; gap: 0.75rem !important; }
+    .form-actions button { width: 100%; justify-content: center; }
+    .footer-inner { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 1.25rem !important; padding: 2rem 1.25rem !important; }
+    .grid-2 { grid-template-columns: 1fr !important; }
+    .hero-stats { width: 100% !important; }
+    h1, h2, h3, p { overflow-wrap: break-word; word-wrap: break-word; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-stat-card { flex: 1 1 100% !important; }
+    .hero-cta { flex-direction: column !important; }
+    .hero-cta button { width: 100%; }
+    .process-grid { grid-template-columns: 1fr !important; }
+    .back-to-top { bottom: 1rem !important; right: 1rem !important; }
   }
 `
 
@@ -182,7 +220,7 @@ const processSteps = [
 ]
 
 const testimonials = [
-  { quote: 'Forma transformed our SaaS onboarding. Conversion jumped 38% in the first month.', name: 'Sarah Chen', role: 'CEO, NeonPay', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80' },
+  { quote: 'Ralix Technologies transformed our SaaS onboarding. Conversion jumped 38% in the first month.', name: 'Sarah Chen', role: 'CEO, NeonPay', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80' },
   { quote: 'The team delivered a stunning mobile experience. Our App Store rating went from 3.2 to 4.8.', name: 'Marcus Webb', role: 'Founder, PulseFit', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80' },
   { quote: 'Finally, a studio that speaks both design and engineering. Zero handoff friction.', name: 'Elena Rossi', role: 'Product Lead, WorkflowOS', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&q=80' },
 ]
@@ -234,7 +272,8 @@ function Nav() {
         style={{
           position: 'fixed', top: 0, left: 0, right: 0, zIndex: 90,
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: scrolled ? '0.875rem 3rem' : '1.375rem 3rem',
+          paddingTop: scrolled ? '0.875rem' : '1.375rem',
+          paddingBottom: scrolled ? '0.875rem' : '1.375rem',
           borderBottom: '1px solid rgba(255,255,255,0.06)',
           backdropFilter: 'blur(24px)',
           background: scrolled ? 'rgba(10,10,15,0.92)' : 'rgba(10,10,15,0.6)',
@@ -243,7 +282,7 @@ function Nav() {
       >
         <a href="#" onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }} style={{ textDecoration: 'none' }}>
           <span style={{ fontFamily: T.fontDisplay, fontSize: '1.25rem', fontWeight: 600, color: T.text, letterSpacing: '0.04em' }}>
-            Forma<span style={{ color: T.accent, fontStyle: 'italic' }}>.</span>
+            Ralix<span style={{ color: T.accent, fontStyle: 'italic' }}> Technologies</span>
           </span>
         </a>
 
@@ -300,7 +339,7 @@ function Hero() {
   const scaleX = useSpring(scrollYProgress, { stiffness: 80, damping: 20 })
 
   return (
-    <section style={{ minHeight: '100vh', display: 'grid', gridTemplateRows: 'auto 1fr auto', padding: '0 3rem', position: 'relative', overflow: 'hidden' }}>
+    <section className="hero-section" style={{ minHeight: '100vh', display: 'grid', gridTemplateRows: 'auto 1fr auto', padding: '0 3rem', position: 'relative', overflow: 'hidden' }}>
       {/* Progress */}
       <motion.div style={{ scaleX, transformOrigin: '0%', position: 'fixed', top: 0, left: 0, right: 0, height: 2, background: `linear-gradient(90deg, ${T.accent}, ${T.goldLight})`, zIndex: 999 }} />
 
@@ -319,6 +358,7 @@ function Hero() {
 
       {/* Eyebrow */}
       <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }}
+        className="hero-eyebrow"
         style={{ display: 'flex', alignItems: 'center', gap: '1rem', paddingTop: '9rem', position: 'relative', zIndex: 1 }}
       >
         <div style={{ width: 36, height: 1, background: T.accent }} />
@@ -329,21 +369,23 @@ function Hero() {
       </motion.div>
 
       {/* Main content */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '4rem', padding: '3rem 0', position: 'relative', zIndex: 1 }}>
-        <div style={{ flex: 1, maxWidth: 700 }}>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+      <motion.div className="hero-inner" style={{ display: 'flex', alignItems: 'center', gap: '4rem', padding: '3rem 0', position: 'relative', zIndex: 1 }}>
+        <div className="hero-copy" style={{ flex: 1, maxWidth: 700 }}>
+          <motion.h1 className="hero-title" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(3.5rem,7vw,6.5rem)', fontWeight: 600, lineHeight: 1.06, letterSpacing: '-0.02em', color: T.text, marginBottom: '2rem' }}
           >
             We Build <em style={{ fontStyle: 'italic', color: T.accent }}>Modern</em><br />Digital Products
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.45 }}
+            className="hero-desc"
             style={{ fontFamily: T.fontBody, fontSize: '1.0625rem', fontWeight: 300, lineHeight: 1.75, color: T.muted, maxWidth: 460, marginBottom: '2.75rem' }}
           >
             From standout websites and mobile apps to custom and SaaS product design — we craft premium experiences with modern UI and intentional motion.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.58 }}
+            className="hero-cta"
             style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}
           >
             <HoverButton primary onClick={() => scrollTo('contact')}>
@@ -355,9 +397,9 @@ function Hero() {
         </div>
 
         {/* Stats aside */}
-        <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', gap: '0.875rem', width: 240 }}>
+        <div className="hero-stats" style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', gap: '0.875rem', width: 240 }}>
           {stats.map((s, i) => (
-            <motion.div key={s.label} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.5 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+            <motion.div className="hero-stat-card" key={s.label} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.5 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
               style={{ padding: '1.5rem 1.75rem', border: T.border, borderLeft: `2px solid ${T.accent}`, borderRadius: 2, background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(8px)' }}
             >
               <p style={{ fontFamily: T.fontDisplay, fontSize: '2.5rem', fontWeight: 600, color: T.text, lineHeight: 1, marginBottom: '0.375rem' }}>{s.value}</p>
@@ -365,10 +407,10 @@ function Hero() {
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Hero footer */}
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.9 }}
+      <motion.div className="hero-footer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.9 }}
         style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.25rem 0 2.5rem', borderTop: '1px solid rgba(255,255,255,0.06)', position: 'relative', zIndex: 1 }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
@@ -377,7 +419,7 @@ function Hero() {
           </div>
           <span style={{ fontFamily: T.fontMono, fontSize: '0.6875rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(232,228,220,0.3)' }}>Scroll to explore</span>
         </div>
-        <div style={{ overflow: 'hidden', maxWidth: 360 }}>
+        <div className="hero-footer-marquee" style={{ overflow: 'hidden', maxWidth: 360 }}>
           <div style={{ display: 'flex', gap: '2.5rem', animation: 'marquee 20s linear infinite', fontFamily: T.fontMono, fontSize: '0.6875rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(232,228,220,0.22)', whiteSpace: 'nowrap' }}>
             {['Website Design', '·', 'Mobile Apps', '·', 'SaaS Design', '·', 'Custom Products', '·', 'Website Design', '·', 'Mobile Apps', '·', 'SaaS Design', '·', 'Custom Products'].map((t, i) => (
               <span key={i} style={t === '·' ? { color: T.accent } : {}}>{t}</span>
@@ -438,8 +480,8 @@ function MarqueeBand() {
 ????????????????????????????????????????? */
 function Services() {
   return (
-    <section id="services" style={{ padding: '7rem 3rem', maxWidth: 1280, margin: '0 auto' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'flex-end', marginBottom: '4rem' }}>
+    <section id="services" className="section-pad" style={{ padding: '7rem 3rem', maxWidth: 1280, margin: '0 auto' }}>
+      <div className="section-header-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'flex-end', marginBottom: '4rem' }}>
         <FadeUp>
           <SectionLabel text="Our Services" />
           <h2 style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(2rem,4vw,3.25rem)', fontWeight: 600, lineHeight: 1.12, color: T.text, letterSpacing: '-0.02em' }}>
@@ -453,7 +495,7 @@ function Services() {
         </FadeUp>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 1, border: T.border, borderRadius: 4, overflow: 'hidden', background: 'rgba(255,255,255,0.04)' }}>
+      <div className="services-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 1, border: T.border, borderRadius: 4, overflow: 'hidden', background: 'rgba(255,255,255,0.04)' }}>
         {services.map((svc, i) => (
           <ServiceCard key={svc.num} svc={svc} delay={i * 0.1} />
         ))}
@@ -468,6 +510,7 @@ function ServiceCard({ svc, delay }) {
   const inView = useInView(ref, { once: true, amount: 0.3 })
   return (
     <motion.article
+      className="service-card"
       ref={ref}
       initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.65, delay, ease: [0.16, 1, 0.3, 1] }}
       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
@@ -494,7 +537,7 @@ function ServiceCard({ svc, delay }) {
 ????????????????????????????????????????? */
 function Why() {
   return (
-    <section id="studio" style={{ padding: '7rem 3rem', maxWidth: 1280, margin: '0 auto', borderTop: T.border, borderBottom: T.border }}>
+    <section id="studio" className="section-pad" style={{ padding: '7rem 3rem', maxWidth: 1280, margin: '0 auto', borderTop: T.border, borderBottom: T.border }}>
       <FadeUp>
         <SectionLabel text="Why Choose Us" />
         <h2 style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(2rem,4vw,3.25rem)', fontWeight: 600, lineHeight: 1.12, color: T.text, letterSpacing: '-0.02em', marginBottom: '0.5rem' }}>
@@ -505,12 +548,12 @@ function Why() {
         </p>
       </FadeUp>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', marginTop: '4rem', alignItems: 'start' }}>
+      <div className="why-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', marginTop: '4rem', alignItems: 'start' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           {whyPoints.map((p, i) => (
             <FadeUp key={p.title} delay={i * 0.12}>
               <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', paddingBottom: i < whyPoints.length - 1 ? '2rem' : 0, borderBottom: i < whyPoints.length - 1 ? T.border : 'none' }}>
-                <div style={{ flexShrink: 0, width: 32, height: 32, border: `1px solid ${T.accent}`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: T.accent, fontSize: '0.875rem', marginTop: 2 }}>?</div>
+                <div style={{ flexShrink: 0, width: 32, height: 32, border: `1px solid ${T.accent}`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: T.accent, marginTop: 2 }}>{(() => { const PointIcon = p.icon; return <PointIcon size={14} strokeWidth={1.5} /> })()}</div>
                 <div>
                   <p style={{ fontFamily: T.fontBody, fontSize: '1rem', fontWeight: 500, color: T.text, marginBottom: '0.375rem' }}>{p.title}</p>
                   <p style={{ fontFamily: T.fontBody, fontSize: '0.875rem', fontWeight: 300, color: T.muted, lineHeight: 1.65 }}>{p.desc}</p>
@@ -520,7 +563,7 @@ function Why() {
           ))}
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+        <div className="why-features-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
           {whyFeatures.map((f, i) => (
             <FadeUp key={f.title} delay={0.2 + i * 0.1} style={{ gridColumn: f.wide ? '1/-1' : undefined }}>
               <WhyFeat {...f} />
@@ -551,8 +594,8 @@ function WhyFeat({ icon: Icon, title, text }) {
 ????????????????????????????????????????? */
 function Work() {
   return (
-    <section id="work" style={{ padding: '7rem 3rem', maxWidth: 1280, margin: '0 auto', borderTop: T.border }}>
-      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '3.5rem' }}>
+    <section id="work" className="section-pad" style={{ padding: '7rem 3rem', maxWidth: 1280, margin: '0 auto', borderTop: T.border }}>
+      <div className="work-header" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '3.5rem' }}>
         <FadeUp>
           <SectionLabel text="Portfolio" />
           <h2 style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(2rem,4vw,3.25rem)', fontWeight: 600, lineHeight: 1.12, color: T.text, letterSpacing: '-0.02em' }}>
@@ -562,7 +605,7 @@ function Work() {
         <ExploreLink />
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '1.5rem' }}>
+      <div className="work-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '1.5rem' }}>
         {projects.map((p, i) => (
           <ProjectCard key={p.title} project={p} delay={i * 0.1} />
         ))}
@@ -652,7 +695,7 @@ function Contact() {
   }
 
   return (
-    <section id="contact" style={{ padding: '7rem 3rem', maxWidth: 1280, margin: '0 auto', borderTop: T.border }}>
+    <section id="contact" className="section-pad" style={{ padding: '7rem 3rem', maxWidth: 1280, margin: '0 auto', borderTop: T.border }}>
       <FadeUp>
         <SectionLabel text="Contact Us" />
         <h2 style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(2rem,4vw,3.25rem)', fontWeight: 600, lineHeight: 1.12, color: T.text, letterSpacing: '-0.02em' }}>
@@ -660,15 +703,15 @@ function Contact() {
         </h2>
       </FadeUp>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '5fr 7fr', gap: '5rem', marginTop: '4rem', alignItems: 'start' }}>
+      <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: '5fr 7fr', gap: '5rem', marginTop: '4rem', alignItems: 'start' }}>
         {/* Aside */}
         <FadeUp delay={0.1}>
-          <div style={{ position: 'sticky', top: '7rem' }}>
+          <div className="contact-aside" style={{ position: 'sticky', top: '7rem' }}>
             <p style={{ fontFamily: T.fontBody, fontSize: '1rem', fontWeight: 300, color: T.muted, lineHeight: 1.75, marginBottom: '2.5rem' }}>
               Tell us what you're building and we'll schedule a free 30-minute discovery call to explore the scope together.
             </p>
             {[
-              { label: 'Email', val: 'hello@formastudio.io' },
+              { label: 'Email', val: 'hello@ralixtechnologies.com' },
               { label: 'Response time', val: 'Within 24 hours' },
               { label: 'Based in', val: 'Global · Remote-first' },
             ].map(item => (
@@ -688,7 +731,7 @@ function Contact() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div className="form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <FormField label="Name" id="name" value={form.name} onChange={v => setForm(f => ({ ...f, name: v }))} placeholder="Your full name" error={errors.name} />
                 <FormField label="Email" id="email" type="email" value={form.email} onChange={v => setForm(f => ({ ...f, email: v }))} placeholder="you@example.com" error={errors.email} />
               </div>
@@ -713,7 +756,7 @@ function Contact() {
                 />
                 {errors.message && <p style={{ fontFamily: T.fontMono, fontSize: '0.75rem', color: '#e07070', marginTop: '0.375rem' }}>{errors.message}</p>}
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.25rem' }}>
+              <div className="form-actions" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.25rem' }}>
                 <HoverButton primary type="submit">
                   Send Inquiry
                   <Send size={16} />
@@ -767,7 +810,7 @@ function Process() {
           A proven <em style={{ fontStyle: 'italic', color: T.accent }}>process</em>
         </h2>
       </FadeUp>
-      <div className="grid-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '1.5rem', marginTop: '3.5rem' }}>
+      <div className="process-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '1.5rem', marginTop: '3.5rem' }}>
         {processSteps.map((step, i) => {
           const Icon = step.icon
           return (
@@ -796,7 +839,7 @@ function Testimonials() {
           What clients <em style={{ fontStyle: 'italic', color: T.accent }}>say</em>
         </h2>
       </FadeUp>
-      <div className="grid-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1.5rem' }}>
+      <div className="testimonials-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1.5rem' }}>
         {testimonials.map((t, i) => (
           <FadeUp key={t.name} delay={i * 0.1}>
             <div style={{ padding: '2rem', border: T.border, borderRadius: 4, background: 'rgba(255,255,255,0.02)', height: '100%', display: 'flex', flexDirection: 'column' }}>
@@ -834,7 +877,7 @@ function BackToTop() {
         <motion.button
           initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          aria-label="Back to top"
+          className="back-to-top" aria-label="Back to top"
           style={{ position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 80, width: 44, height: 44, borderRadius: '50%', border: `1px solid ${T.accent}`, background: 'rgba(10,10,15,0.9)', color: T.accent, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(12px)' }}
         >
           <ArrowUp size={18} />
@@ -849,18 +892,18 @@ function BackToTop() {
 ????????????????????????????????????????? */
 function Footer() {
   return (
-    <footer style={{ borderTop: T.border, padding: '2.5rem 3rem', maxWidth: 1280, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+    <footer className="footer-inner section-pad" style={{ borderTop: T.border, padding: '2.5rem 3rem', maxWidth: 1280, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
       <span style={{ fontFamily: T.fontDisplay, fontSize: '1rem', fontWeight: 600, color: 'rgba(240,236,227,0.45)' }}>
-        Forma<span style={{ color: T.accent, fontStyle: 'italic' }}>.</span>
+        Ralix<span style={{ color: T.accent, fontStyle: 'italic' }}> Technologies</span>
       </span>
       <span style={{ fontFamily: T.fontMono, fontSize: '0.6875rem', fontWeight: 300, color: 'rgba(232,228,220,0.2)', letterSpacing: '0.06em' }}>
-        © 2025 Forma Studio. All rights reserved.
+        © 2025 Ralix Technologies. All rights reserved.
       </span>
       <div style={{ display: 'flex', gap: '1.5rem' }}>
         {[
           { Icon: X, href: 'https://x.com', label: 'X' },
-          { Icon: Globe, href: 'https://formastudio.io', label: 'Website' },
-          { Icon: ExternalLink, href: 'mailto:hello@formastudio.io', label: 'Email' },
+          { Icon: Globe, href: 'https://ralixtechnologies.com', label: 'Website' },
+          { Icon: ExternalLink, href: 'mailto:hello@ralixtechnologies.com', label: 'Email' },
         ].map(({ Icon, href, label }) => (
           <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
             style={{ color: 'rgba(232,228,220,0.25)', transition: 'color 0.2s' }}

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pixorastudio.com/sitemap.xml
+Sitemap: https://ralixtechnologies.com/sitemap.xml
