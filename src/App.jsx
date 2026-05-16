@@ -42,29 +42,69 @@ const globalCss = `
   @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
   .hide-mobile { display: flex; }
   .show-mobile { display: none; align-items: center; justify-content: center; }
-  .section-pad { padding-left: 3rem; padding-right: 3rem; }
+  .section-pad { padding-left: 3rem; padding-right: 3rem; max-width: 1280px; margin-left: auto; margin-right: auto; width: 100%; }
   .nav-pad { padding-left: 3rem; padding-right: 3rem; }
+  #root, .app-root { width: 100%; max-width: 100vw; overflow-x: hidden; }
+  input, select, textarea, button { max-width: 100%; }
+
+  .nav-brand { font-family: 'Playfair Display', Georgia, serif; font-size: 1.25rem; font-weight: 600; color: #f0ece3; letter-spacing: 0.04em; line-height: 1.15; }
+  .nav-brand-accent { color: #c8a96e; font-style: italic; }
+
+  .hero-section { min-height: 100vh; min-height: 100dvh; padding: 0 3rem; display: grid; grid-template-rows: auto 1fr auto; position: relative; overflow-x: hidden; overflow-y: visible; width: 100%; max-width: 100vw; }
+  .hero-inner { display: flex; align-items: center; gap: 4rem; padding: 3rem 0; position: relative; z-index: 1; width: 100%; min-width: 0; min-height: 0; }
+  .hero-copy { flex: 1; max-width: 700px; min-width: 0; }
+  .hero-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(3.5rem, 7vw, 6.5rem); font-weight: 600; line-height: 1.12; letter-spacing: -0.02em; color: #f0ece3; margin-bottom: 2rem; }
+  .hero-stats { flex-shrink: 0; display: flex; flex-direction: column; gap: 0.875rem; width: 240px; min-width: 0; }
+  .hero-bg-orb { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; }
+  .hero-bg-orb-1 { top: -10%; left: 55%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(200,169,110,0.07) 0%, transparent 70%); }
+  .hero-bg-orb-2 { top: 30%; left: -5%; width: 450px; height: 450px; background: radial-gradient(circle, rgba(100,80,200,0.05) 0%, transparent 70%); }
+  .hero-eyebrow { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; padding-top: 9rem; position: relative; z-index: 1; }
+  .hero-eyebrow-text { font-family: 'DM Mono', monospace; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #c8a96e; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; width: 100%; }
+  .hero-cta .hero-btn { flex: 1 1 auto; min-width: 0; justify-content: center; }
+  .hero-desc { font-family: 'DM Sans', sans-serif; font-size: 1.0625rem; font-weight: 300; line-height: 1.75; color: rgba(232,228,220,0.55); max-width: 460px; margin-bottom: 2.75rem; }
+  .hero-stat-card { padding: 1.5rem 1.75rem; border-radius: 2px; background: rgba(255,255,255,0.03); backdrop-filter: blur(8px); min-width: 0; }
+  .hero-stat-value { font-family: 'Playfair Display', Georgia, serif; font-size: 2.5rem; font-weight: 600; color: #f0ece3; line-height: 1; margin-bottom: 0.375rem; }
+  .hero-stat-label { font-family: 'DM Mono', monospace; font-size: 0.6875rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(200,169,110,0.55); }
+  .hero-footer { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 0 2.5rem; border-top: 1px solid rgba(255,255,255,0.06); position: relative; z-index: 1; width: 100%; gap: 1rem; flex-wrap: wrap; }
+  .hero-footer-marquee { overflow: hidden; max-width: 360px; flex: 1; min-width: 0; }
+  .page-section { padding: 7rem 3rem; max-width: 1280px; margin: 0 auto; width: 100%; }
+  .footer-inner.page-section { padding: 2.5rem 3rem; }
 
   @media (max-width: 900px) {
     .hide-mobile { display: none !important; }
     .show-mobile { display: flex !important; }
-    .nav-pad { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+    .nav-pad { padding-left: 1.25rem !important; padding-right: 1.25rem !important; gap: 0.5rem; }
+    .show-mobile { flex-shrink: 0; }
 
-    .hero-section { padding-left: 1.25rem !important; padding-right: 1.25rem !important; min-height: auto !important; padding-bottom: 2rem !important; }
-    .hero-eyebrow { padding-top: 6rem !important; gap: 0.75rem !important; }
-    .hero-inner { flex-direction: column !important; align-items: stretch !important; gap: 2rem !important; padding: 1.5rem 0 2rem !important; }
-    .hero-copy { max-width: 100% !important; }
-    .hero-title { font-size: clamp(2.25rem, 11vw, 3.75rem) !important; margin-bottom: 1.25rem !important; }
+    .nav-brand { font-size: 1rem; max-width: calc(100vw - 4.5rem); }
+    .nav-brand-accent { font-size: 0.9em; }
+
+    .hero-section {
+      padding: 0 1.25rem 2.5rem;
+      padding-bottom: calc(2.5rem + env(safe-area-inset-bottom, 0px));
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
+      overflow: visible;
+    }
+    .hero-bg-orb { display: none; }
+    .hero-eyebrow { padding-top: max(5.75rem, calc(4.5rem + env(safe-area-inset-top, 0px))); gap: 0.5rem 0.75rem; flex-shrink: 0; }
+    .hero-eyebrow-text { font-size: 0.625rem; letter-spacing: 0.14em; max-width: 100%; }
+    .hero-inner { flex: none; flex-direction: column; align-items: stretch; gap: 2rem; padding: 1.5rem 0 1.5rem; min-height: 0; overflow: visible; }
+    .hero-copy { max-width: 100%; flex: none; }
+    .hero-title { font-size: clamp(2rem, 10vw, 3.25rem); line-height: 1.15; margin-bottom: 1.25rem; }
     .hero-desc { max-width: 100% !important; font-size: 1rem !important; margin-bottom: 1.75rem !important; }
-    .hero-cta { width: 100%; }
-    .hero-cta button { flex: 1; justify-content: center; min-width: 0; }
-    .hero-stats { display: flex !important; flex-direction: row !important; flex-wrap: wrap !important; width: 100% !important; gap: 0.75rem !important; }
-    .hero-stat-card { flex: 1 1 calc(50% - 0.375rem) !important; min-width: 0 !important; padding: 1rem 1.125rem !important; }
-    .hero-stat-card p:first-child { font-size: 1.75rem !important; }
-    .hero-footer { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; padding-bottom: 1.5rem !important; }
-    .hero-footer-marquee { max-width: 100% !important; width: 100% !important; }
-
-    .section-pad { padding: 4rem 1.25rem !important; }
+    .hero-cta { flex-direction: column; }
+    .hero-cta .hero-btn { width: 100%; flex: none; }
+    .hero-stats { flex-direction: row; flex-wrap: wrap; width: 100%; gap: 0.75rem; }
+    .hero-stat-card { flex: 1 1 calc(50% - 0.375rem); min-width: 0; padding: 1rem 1.125rem; }
+    .hero-stat-value { font-size: 1.75rem; }
+    .hero-desc { max-width: 100%; font-size: 1rem; margin-bottom: 1.75rem; }
+    .hero-footer { flex: none; flex-direction: column; align-items: flex-start; padding: 1.25rem 0 0; margin-top: 0.5rem; overflow: visible; }
+    .hero-footer-marquee { max-width: 100%; width: 100%; flex: none; min-height: 1.25rem; overflow: hidden; }
+    .page-section, .section-pad { padding: 4rem 1.25rem; }
+    .footer-inner.page-section { padding: 2rem 1.25rem; }
     .section-header-grid { grid-template-columns: 1fr !important; gap: 1.25rem !important; margin-bottom: 2.5rem !important; }
     .services-grid { grid-template-columns: 1fr !important; }
     .service-card { padding: 2rem 1.25rem !important; }
@@ -86,9 +126,10 @@ const globalCss = `
   }
 
   @media (max-width: 480px) {
+    .nav-brand { font-size: 0.9rem; }
     .hero-stat-card { flex: 1 1 100% !important; }
-    .hero-cta { flex-direction: column !important; }
-    .hero-cta button { width: 100%; }
+    .hero-title { font-size: clamp(1.85rem, 9vw, 2.75rem); line-height: 1.18; }
+    .hero-cta .hero-btn { min-height: 48px; }
     .process-grid { grid-template-columns: 1fr !important; }
     .back-to-top { bottom: 1rem !important; right: 1rem !important; }
   }
@@ -280,9 +321,9 @@ function Nav() {
           transition: 'padding 0.4s ease, background 0.4s ease',
         }}
       >
-        <a href="#" onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }} style={{ textDecoration: 'none' }}>
-          <span style={{ fontFamily: T.fontDisplay, fontSize: '1.25rem', fontWeight: 600, color: T.text, letterSpacing: '0.04em' }}>
-            Ralix<span style={{ color: T.accent, fontStyle: 'italic' }}> Technologies</span>
+        <a href="#" onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }} style={{ textDecoration: 'none', minWidth: 0, flex: '1 1 auto' }}>
+          <span className="nav-brand">
+            Ralix<span className="nav-brand-accent"> Technologies</span>
           </span>
         </a>
 
@@ -339,13 +380,13 @@ function Hero() {
   const scaleX = useSpring(scrollYProgress, { stiffness: 80, damping: 20 })
 
   return (
-    <section className="hero-section" style={{ minHeight: '100vh', display: 'grid', gridTemplateRows: 'auto 1fr auto', padding: '0 3rem', position: 'relative', overflow: 'hidden' }}>
+    <section className="hero-section">
       {/* Progress */}
       <motion.div style={{ scaleX, transformOrigin: '0%', position: 'fixed', top: 0, left: 0, right: 0, height: 2, background: `linear-gradient(90deg, ${T.accent}, ${T.goldLight})`, zIndex: 999 }} />
 
       {/* Bg orbs */}
-      <motion.div style={{ y: orbY, position: 'absolute', top: '-10%', left: '55%', width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(200,169,110,0.07) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 0 }} />
-      <motion.div style={{ y: orbY2, position: 'absolute', top: '30%', left: '-5%', width: 450, height: 450, borderRadius: '50%', background: 'radial-gradient(circle, rgba(100,80,200,0.05) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 0 }} />
+      <motion.div className="hero-bg-orb hero-bg-orb-1" style={{ y: orbY }} />
+      <motion.div className="hero-bg-orb hero-bg-orb-2" style={{ y: orbY2 }} />
 
       {/* Grid lines */}
       <div style={{
@@ -359,67 +400,56 @@ function Hero() {
       {/* Eyebrow */}
       <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }}
         className="hero-eyebrow"
-        style={{ display: 'flex', alignItems: 'center', gap: '1rem', paddingTop: '9rem', position: 'relative', zIndex: 1 }}
       >
-        <div style={{ width: 36, height: 1, background: T.accent }} />
-        <span style={{ fontFamily: T.fontMono, fontSize: '0.6875rem', fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', color: T.accent }}>
+        <div style={{ width: 36, height: 1, background: T.accent, flexShrink: 0 }} />
+        <span className="hero-eyebrow-text">
           Premium Digital Design Studio
         </span>
         <div style={{ width: 8, height: 8, borderRadius: '50%', background: T.accent, animation: 'pulse-dot 2.4s ease-in-out infinite' }} />
       </motion.div>
 
       {/* Main content */}
-      <motion.div className="hero-inner" style={{ display: 'flex', alignItems: 'center', gap: '4rem', padding: '3rem 0', position: 'relative', zIndex: 1 }}>
-        <div className="hero-copy" style={{ flex: 1, maxWidth: 700 }}>
-          <motion.h1 className="hero-title" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(3.5rem,7vw,6.5rem)', fontWeight: 600, lineHeight: 1.06, letterSpacing: '-0.02em', color: T.text, marginBottom: '2rem' }}
-          >
+      <motion.div className="hero-inner">
+        <div className="hero-copy">
+          <motion.h1 className="hero-title" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}>
             We Build <em style={{ fontStyle: 'italic', color: T.accent }}>Modern</em><br />Digital Products
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.45 }}
-            className="hero-desc"
-            style={{ fontFamily: T.fontBody, fontSize: '1.0625rem', fontWeight: 300, lineHeight: 1.75, color: T.muted, maxWidth: 460, marginBottom: '2.75rem' }}
-          >
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.45 }} className="hero-desc">
             From standout websites and mobile apps to custom and SaaS product design — we craft premium experiences with modern UI and intentional motion.
           </motion.p>
 
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.58 }}
-            className="hero-cta"
-            style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}
-          >
-            <HoverButton primary onClick={() => scrollTo('contact')}>
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.58 }} className="hero-cta">
+            <HoverButton className="hero-btn" primary onClick={() => scrollTo('contact')}>
               Start Your Project
               <ArrowRight size={16} />
             </HoverButton>
-            <HoverButton onClick={() => scrollTo('work')}>View Our Work</HoverButton>
+            <HoverButton className="hero-btn" onClick={() => scrollTo('work')}>View Our Work</HoverButton>
           </motion.div>
         </div>
 
         {/* Stats aside */}
-        <div className="hero-stats" style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', gap: '0.875rem', width: 240 }}>
+        <div className="hero-stats">
           {stats.map((s, i) => (
             <motion.div className="hero-stat-card" key={s.label} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.5 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-              style={{ padding: '1.5rem 1.75rem', border: T.border, borderLeft: `2px solid ${T.accent}`, borderRadius: 2, background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(8px)' }}
+              style={{ border: T.border, borderLeft: `2px solid ${T.accent}` }}
             >
-              <p style={{ fontFamily: T.fontDisplay, fontSize: '2.5rem', fontWeight: 600, color: T.text, lineHeight: 1, marginBottom: '0.375rem' }}>{s.value}</p>
-              <p style={{ fontFamily: T.fontMono, fontSize: '0.6875rem', fontWeight: 400, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(200,169,110,0.55)' }}>{s.label}</p>
+              <p className="hero-stat-value">{s.value}</p>
+              <p className="hero-stat-label">{s.label}</p>
             </motion.div>
           ))}
         </div>
       </motion.div>
 
       {/* Hero footer */}
-      <motion.div className="hero-footer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.9 }}
-        style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.25rem 0 2.5rem', borderTop: '1px solid rgba(255,255,255,0.06)', position: 'relative', zIndex: 1 }}
-      >
+      <motion.div className="hero-footer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.9 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <div style={{ width: 32, height: 1, background: 'rgba(232,228,220,0.15)', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: 0, bottom: 0, width: '100%', background: T.accent, animation: 'slideX 2.4s ease-in-out infinite', left: '-100%' }} />
           </div>
           <span style={{ fontFamily: T.fontMono, fontSize: '0.6875rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(232,228,220,0.3)' }}>Scroll to explore</span>
         </div>
-        <div className="hero-footer-marquee" style={{ overflow: 'hidden', maxWidth: 360 }}>
+        <div className="hero-footer-marquee">
           <div style={{ display: 'flex', gap: '2.5rem', animation: 'marquee 20s linear infinite', fontFamily: T.fontMono, fontSize: '0.6875rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(232,228,220,0.22)', whiteSpace: 'nowrap' }}>
             {['Website Design', '·', 'Mobile Apps', '·', 'SaaS Design', '·', 'Custom Products', '·', 'Website Design', '·', 'Mobile Apps', '·', 'SaaS Design', '·', 'Custom Products'].map((t, i) => (
               <span key={i} style={t === '·' ? { color: T.accent } : {}}>{t}</span>
@@ -434,11 +464,12 @@ function Hero() {
 /* ?????????????????????????????????????????
    HOVER BUTTON
 ????????????????????????????????????????? */
-function HoverButton({ children, primary = false, onClick, type = 'button' }) {
+function HoverButton({ children, primary = false, onClick, type = 'button', className = '' }) {
   const [hov, setHov] = useState(false)
   return (
     <motion.button
       type={type}
+      className={className}
       whileTap={{ scale: 0.97 }}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
@@ -480,7 +511,7 @@ function MarqueeBand() {
 ????????????????????????????????????????? */
 function Services() {
   return (
-    <section id="services" className="section-pad" style={{ padding: '7rem 3rem', maxWidth: 1280, margin: '0 auto' }}>
+    <section id="services" className="section-pad page-section">
       <div className="section-header-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'flex-end', marginBottom: '4rem' }}>
         <FadeUp>
           <SectionLabel text="Our Services" />
@@ -537,7 +568,7 @@ function ServiceCard({ svc, delay }) {
 ????????????????????????????????????????? */
 function Why() {
   return (
-    <section id="studio" className="section-pad" style={{ padding: '7rem 3rem', maxWidth: 1280, margin: '0 auto', borderTop: T.border, borderBottom: T.border }}>
+    <section id="studio" className="section-pad page-section" style={{ borderTop: T.border, borderBottom: T.border }}>
       <FadeUp>
         <SectionLabel text="Why Choose Us" />
         <h2 style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(2rem,4vw,3.25rem)', fontWeight: 600, lineHeight: 1.12, color: T.text, letterSpacing: '-0.02em', marginBottom: '0.5rem' }}>
@@ -594,7 +625,7 @@ function WhyFeat({ icon: Icon, title, text }) {
 ????????????????????????????????????????? */
 function Work() {
   return (
-    <section id="work" className="section-pad" style={{ padding: '7rem 3rem', maxWidth: 1280, margin: '0 auto', borderTop: T.border }}>
+    <section id="work" className="section-pad page-section" style={{ borderTop: T.border }}>
       <div className="work-header" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '3.5rem' }}>
         <FadeUp>
           <SectionLabel text="Portfolio" />
@@ -695,7 +726,7 @@ function Contact() {
   }
 
   return (
-    <section id="contact" className="section-pad" style={{ padding: '7rem 3rem', maxWidth: 1280, margin: '0 auto', borderTop: T.border }}>
+    <section id="contact" className="section-pad page-section" style={{ borderTop: T.border }}>
       <FadeUp>
         <SectionLabel text="Contact Us" />
         <h2 style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(2rem,4vw,3.25rem)', fontWeight: 600, lineHeight: 1.12, color: T.text, letterSpacing: '-0.02em' }}>
@@ -803,7 +834,7 @@ function ClientLogos() {
 /* PROCESS */
 function Process() {
   return (
-    <section id="process" className="section-pad" style={{ padding: '7rem 3rem', maxWidth: 1280, margin: '0 auto', borderTop: T.border }}>
+    <section id="process" className="section-pad page-section" style={{ borderTop: T.border }}>
       <FadeUp>
         <SectionLabel text="How We Work" />
         <h2 style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(2rem,4vw,3.25rem)', fontWeight: 600, lineHeight: 1.12, color: T.text, letterSpacing: '-0.02em' }}>
@@ -832,7 +863,7 @@ function Process() {
 /* TESTIMONIALS */
 function Testimonials() {
   return (
-    <section className="section-pad" style={{ padding: '7rem 3rem', maxWidth: 1280, margin: '0 auto', borderTop: T.border, background: 'rgba(255,255,255,0.015)' }}>
+    <section className="section-pad page-section" style={{ borderTop: T.border, background: 'rgba(255,255,255,0.015)' }}>
       <FadeUp>
         <SectionLabel text="Testimonials" />
         <h2 style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(2rem,4vw,3.25rem)', fontWeight: 600, lineHeight: 1.12, color: T.text, letterSpacing: '-0.02em', marginBottom: '3rem' }}>
@@ -892,7 +923,7 @@ function BackToTop() {
 ????????????????????????????????????????? */
 function Footer() {
   return (
-    <footer className="footer-inner section-pad" style={{ borderTop: T.border, padding: '2.5rem 3rem', maxWidth: 1280, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+    <footer className="footer-inner section-pad page-section" style={{ borderTop: T.border, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
       <span style={{ fontFamily: T.fontDisplay, fontSize: '1rem', fontWeight: 600, color: 'rgba(240,236,227,0.45)' }}>
         Ralix<span style={{ color: T.accent, fontStyle: 'italic' }}> Technologies</span>
       </span>
@@ -921,7 +952,7 @@ function Footer() {
 ????????????????????????????????????????? */
 export default function App() {
   return (
-    <div style={{ background: T.ink, minHeight: '100vh' }}>
+    <div className="app-root" style={{ background: T.ink, minHeight: '100vh' }}>
       <InjectStyles />
       <Nav />
       <Hero />
