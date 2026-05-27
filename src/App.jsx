@@ -213,9 +213,9 @@ function FadeUp({ children, delay = 0, style = {} }) {
   )
 }
 
-function GradientAccent({ children }) {
+function GradientAccent({ children, onClick, style }) {
   return (
-    <em style={{ fontStyle: 'normal', background: T.gradient, WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>
+    <em onClick={onClick} style={{ fontStyle: 'normal', background: T.gradient, WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', ...style }}>
       {children}
     </em>
   )
@@ -239,20 +239,11 @@ function SectionLabel({ text }) {
 }
 
 const services = [
-  { num: '01', title: 'Website Design', desc: 'High-converting websites crafted with strategy, premium visuals, and polished micro-interactions.' },
-  { num: '02', title: 'Mobile Applications', desc: 'Fast, intuitive iOS & Android experiences tailored for real user behavior and delight.' },
-  { num: '03', title: 'Custom Product Design', desc: 'End-to-end product design: research, UX flows, to production-ready UI systems.' },
-  { num: '04', title: 'SaaS Product Design', desc: 'Scalable SaaS interfaces with clean information architecture and frictionless onboarding.' },
-  { num: '05', title: 'SaaS Development', desc: 'Robust SaaS platforms engineered for scale, speed, and long-term product growth.' },
-  { num: '06', title: 'iOS Development', desc: 'Native and cross-platform iOS apps built for performance, usability, and reliability.' },
-  { num: '07', title: 'Web Development', desc: 'Conversion-focused web experiences with clean code, responsive layouts, and modern tooling.' },
-  { num: '08', title: 'Custom Software Development', desc: 'Tailored software solutions aligned to your workflows, goals, and operational needs.' },
-  { num: '09', title: 'Cloud Application Development', desc: 'Cloud-native apps designed for resilience, seamless scaling, and reliable deployment.' },
-  { num: '10', title: 'IT Consulting', desc: 'Strategic technology consulting to help you make confident architecture and scaling decisions.' },
-  { num: '11', title: 'Cloud Management', desc: 'End-to-end cloud operations management focused on uptime, cost efficiency, and security.' },
-  { num: '12', title: 'Mobile Application Development', desc: 'Full-cycle mobile app development from product strategy and UX to launch and iteration.' },
-  { num: '13', title: 'Application Development', desc: 'Custom application development for web, mobile, and cloud-first business products.' },
-  { num: '14', title: 'AI Development', desc: 'Intelligent AI-powered solutions that automate workflows, personalize experiences, and drive growth.' },
+  { num: '01', title: 'AI Development', desc: 'Intelligent AI-powered solutions that automate workflows, personalize experiences, and drive business growth.' },
+  { num: '02', title: 'Custom Software Development', desc: 'Tailored software solutions precisely aligned to your workflows, goals, and operational needs.' },
+  { num: '03', title: 'SaaS Development', desc: 'Robust SaaS platforms engineered for scale, speed, and long-term product growth.' },
+  { num: '04', title: 'Mobile Applications', desc: 'Fast, intuitive iOS & Android experiences tailored for real user behaviour and delight.' },
+  { num: '05', title: 'Cloud Application Development', desc: 'Cloud-native apps designed for resilience, seamless scaling, and reliable deployment.' },
 ]
 
 const stats = [
@@ -483,7 +474,7 @@ function Services() {
   return (
     <section id="services" className="section-pad page-section">
       <div className="section-header-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'flex-end', marginBottom: '4rem' }}>
-        <FadeUp><SectionLabel text="Our Services" /><h2 style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(2rem,4vw,3.25rem)', fontWeight: 600, lineHeight: 1.12, color: T.text, letterSpacing: '-0.02em' }}>Four core <GradientAccent>disciplines</GradientAccent></h2></FadeUp>
+        <FadeUp><SectionLabel text="Our Services" /><h2 style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(2rem,4vw,3.25rem)', fontWeight: 600, lineHeight: 1.12, color: T.text, letterSpacing: '-0.02em' }}>Core <GradientAccent style={{ cursor: 'pointer' }} onClick={() => scrollTo('contact')}>disciplines</GradientAccent></h2></FadeUp>
         <FadeUp delay={0.15}><p style={{ fontFamily: T.fontBody, fontSize: '1rem', fontWeight: 300, color: T.muted, lineHeight: 1.75, maxWidth: 400 }}>Premium design and development services built for modern brands and fast-growing startups that demand quality.</p></FadeUp>
       </div>
       <div className="services-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '1.25rem' }}>
