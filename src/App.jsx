@@ -253,10 +253,9 @@ const stats = [
 ]
 
 const projects = [
-  { title: 'NeonPay SaaS Dashboard', category: 'SaaS Product Design', result: '+38% trial-to-paid conversion', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80', grad: 'linear-gradient(135deg, rgba(99,102,241,0.85) 0%, rgba(139,92,246,0.75) 55%, rgba(6,182,212,0.7) 100%)' },
-  { title: 'Luna Commerce Website', category: 'Website Design', result: '+52% engagement on landing pages', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80', grad: 'linear-gradient(135deg, rgba(79,70,229,0.8) 0%, rgba(99,102,241,0.7) 55%, rgba(14,165,233,0.65) 100%)' },
-  { title: 'PulseFit Mobile App', category: 'Mobile Application', result: '4.8★ app rating after redesign', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80', grad: 'linear-gradient(135deg, rgba(124,58,237,0.8) 0%, rgba(99,102,241,0.75) 55%, rgba(6,182,212,0.7) 100%)' },
-  { title: 'WorkflowOS Internal Tool', category: 'Custom Product Design', result: 'Reduced task time by 41%', image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900&q=80', grad: 'linear-gradient(135deg, rgba(67,56,202,0.85) 0%, rgba(99,102,241,0.7) 55%, rgba(8,145,178,0.75) 100%)' },
+  { title: 'Nexus Shubh Services', category: 'SaaS Product Dev', result: 'Mobile-friendly HRMS built on Next.js — streamlines HR ops end-to-end', image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80', grad: 'linear-gradient(135deg, rgba(99,102,241,0.88) 0%, rgba(139,92,246,0.78) 55%, rgba(6,182,212,0.72) 100%)' },
+  { title: 'Global CCTV Solutions', category: 'Website', result: 'Full-service CCTV provider — React web presence that drives enquiries', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80', grad: 'linear-gradient(135deg, rgba(15,23,60,0.9) 0%, rgba(30,58,138,0.82) 55%, rgba(14,116,144,0.75) 100%)' },
+  { title: 'Chandramukhi Sales', category: 'Website', result: 'Civil construction brand taken fully digital — built with Vite', image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80', grad: 'linear-gradient(135deg, rgba(120,53,15,0.88) 0%, rgba(180,83,9,0.78) 55%, rgba(99,102,241,0.65) 100%)' },
 ]
 
 const clients = ['Stripe', 'Notion', 'Figma', 'Linear', 'Vercel', 'Shopify', 'Airbnb', 'Spotify']
