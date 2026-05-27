@@ -256,9 +256,9 @@ const services = [
 ]
 
 const stats = [
-  { value: '120+', label: 'Projects Delivered' },
-  { value: '50+', label: 'Global Clients' },
-  { value: '98%', label: 'Satisfaction Rate' },
+  { value: '10+', label: 'Projects Delivered' },
+  { value: '1', label: 'Global Clients' },
+  { value: '100%', label: 'Satisfaction Rate' },
 ]
 
 const projects = [
@@ -411,12 +411,12 @@ function Hero() {
       <motion.div className="hero-bg-orb hero-bg-orb-3" style={{ y: orbY }} />
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', backgroundImage: 'linear-gradient(rgba(15,23,42,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,0.06) 1px,transparent 1px)', backgroundSize: '80px 80px', WebkitMaskImage: 'radial-gradient(ellipse 85% 85% at 50% 50%,black 20%,transparent 100%)', maskImage: 'radial-gradient(ellipse 85% 85% at 50% 50%,black 20%,transparent 100%)' }} />
       <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="hero-eyebrow">
-        <span className="hero-eyebrow-pill"><span className="hero-eyebrow-dot" />Premium Digital Design Studio</span>
+        <span className="hero-eyebrow-pill"><span className="hero-eyebrow-dot" /></span>
       </motion.div>
       <motion.div className="hero-inner">
         <div className="hero-copy">
           <motion.h1 className="hero-title" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}>
-            We Build <GradientAccent>Modern</GradientAccent><br />Digital Products
+            We Help Businesses <GradientAccent>Scale</GradientAccent><br />To New Heights
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.45 }} className="hero-desc">
             From standout websites and mobile apps to custom and SaaS product design — we craft premium experiences with modern UI and intentional motion.
