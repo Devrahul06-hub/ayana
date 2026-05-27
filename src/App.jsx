@@ -41,7 +41,7 @@ const T = {
   fontMono: "'IBM Plex Mono', monospace",
 }
 
-const techPills = ['Web & Mobile', 'SaaS Products', 'Design Systems', 'AI & Automation']
+const techPills = ['AI / ML', 'Next.js', 'Python', 'TypeScript', 'React', 'Node.js', 'AWS', 'Vite']
 
 const globalCss = `
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
@@ -258,7 +258,6 @@ const projects = [
   { title: 'Chandramukhi Sales', category: 'Website', result: 'Civil construction brand taken fully digital — built with Vite', image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80', grad: 'linear-gradient(135deg, rgba(120,53,15,0.88) 0%, rgba(180,83,9,0.78) 55%, rgba(99,102,241,0.65) 100%)' },
 ]
 
-const clients = ['Stripe', 'Notion', 'Figma', 'Linear', 'Vercel', 'Shopify', 'Airbnb', 'Spotify']
 
 const processSteps = [
   { num: '01', title: 'Discovery', desc: 'We map goals, users, and constraints in a focused kickoff workshop.', icon: Lightbulb },
@@ -716,17 +715,6 @@ function FormField({ label, id, type = 'text', value, onChange, placeholder, err
   )
 }
 
-function ClientLogos() {
-  const doubled = [...clients, ...clients]
-  return (
-    <section style={{ padding: '3rem 0', borderBottom: T.border, overflow: 'hidden' }}>
-      <p style={{ textAlign: 'center', fontFamily: T.fontMono, fontSize: '0.6875rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: T.faintLow, marginBottom: '1.5rem' }}>Trusted by innovative teams</p>
-      <div style={{ display: 'flex', gap: '4rem', animation: 'marquee 35s linear infinite', whiteSpace: 'nowrap' }}>
-        {doubled.map((c, i) => <span key={i} style={{ fontFamily: T.fontDisplay, fontSize: '1.25rem', fontWeight: 600, color: T.faint, letterSpacing: '0.04em' }}>{c}</span>)}
-      </div>
-    </section>
-  )
-}
 
 function Process() {
   return (
@@ -816,7 +804,6 @@ export default function App() {
       <Nav />
       <Hero />
       <MarqueeBand />
-      <ClientLogos />
       <Services />
       <Why />
       <Process />
