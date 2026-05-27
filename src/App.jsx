@@ -457,12 +457,12 @@ function Hero() {
   )
 }
 
-function HoverButton({ children, primary = false, onClick, type = 'button', className = '' }) {
+function HoverButton({ children, primary = false, onClick, type = 'button', className = '', disabled = false }) {
   const [hov, setHov] = useState(false)
   return (
-    <motion.button type={type} className={className} whileTap={{ scale: 0.97 }}
-      onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} onClick={onClick}
-      style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '0.9375rem 2rem', background: primary ? (hov ? T.gradientHover : T.gradient) : (hov ? T.surfaceHover : T.surface), color: primary ? T.onAccent : T.text, fontFamily: T.fontBody, fontSize: '0.9375rem', fontWeight: 600, letterSpacing: '-0.01em', border: primary ? 'none' : `1px solid ${T.border}`, borderRadius: T.radiusPill, cursor: 'pointer', boxShadow: primary ? (hov ? T.shadowGlow : '0 4px 20px rgba(99,102,241,0.35)') : T.shadowSm, transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)' }}
+    <motion.button type={type} className={className} whileTap={disabled ? {} : { scale: 0.97 }} disabled={disabled}
+      onMouseEnter={() => !disabled && setHov(true)} onMouseLeave={() => setHov(false)} onClick={onClick}
+      style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '0.9375rem 2rem', background: primary ? (hov ? T.gradientHover : T.gradient) : (hov ? T.surfaceHover : T.surface), color: primary ? T.onAccent : T.text, fontFamily: T.fontBody, fontSize: '0.9375rem', fontWeight: 600, letterSpacing: '-0.01em', border: primary ? 'none' : `1px solid ${T.border}`, borderRadius: T.radiusPill, cursor: disabled ? 'not-allowed' : 'pointer', opacity: disabled ? 0.72 : 1, boxShadow: primary ? (hov ? T.shadowGlow : '0 4px 20px rgba(99,102,241,0.35)') : T.shadowSm, transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)' }}
     >{children}</motion.button>
   )
 }
@@ -607,6 +607,8 @@ function Contact() {
   const [form, setForm] = useState({ name: '', email: '', service: '', message: '' })
   const [errors, setErrors] = useState({})
   const [success, setSuccess] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const validate = () => {
     const e = {}
@@ -618,11 +620,45 @@ function Contact() {
     return e
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const errs = validate()
     setErrors(errs)
-    if (!Object.keys(errs).length) { setSuccess(true); setForm({ name: '', email: '', service: '', message: '' }) }
+    setSubmitError('')
+    if (Object.keys(errs).length) return
+
+    try {
+      setIsSubmitting(true)
+      const payload = {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        service: form.service,
+        message: form.message.trim(),
+        submittedAt: new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }),
+        website: window.location.origin,
+        _subject: `New Website Enquiry: ${form.service} - ${form.name.trim()}`,
+        _template: 'table',
+        _captcha: 'false',
+      }
+
+      const res = await fetch('https://formsubmit.co/ajax/support@ayanatechnologies.in', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+
+      if (!res.ok) throw new Error('Failed to submit enquiry')
+
+      setSuccess(true)
+      setForm({ name: '', email: '', service: '', message: '' })
+    } catch {
+      setSubmitError('Unable to send your enquiry right now. Please try again in a moment.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -632,7 +668,7 @@ function Contact() {
         <FadeUp delay={0.1}>
           <div className="contact-aside" style={{ position: 'sticky', top: '7rem' }}>
             <p style={{ fontFamily: T.fontBody, fontSize: '1rem', fontWeight: 300, color: T.muted, lineHeight: 1.75, marginBottom: '2.5rem' }}>Tell us what you're building and we'll schedule a free 30-minute discovery call to explore the scope together.</p>
-            {[{ label: 'Email', val: 'hello@ralixtechnologies.com' }, { label: 'Response time', val: 'Within 24 hours' }, { label: 'Based in', val: 'Global · Remote-first' }].map(item => (
+            {[{ label: 'Email', val: 'support@ayanatechnologies.in' }, { label: 'Response time', val: 'Within 24 hours' }, { label: 'Based in', val: 'Global · Remote-first' }].map(item => (
               <div key={item.label} style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', paddingLeft: '1rem', borderLeft: `2px solid rgba(99,102,241,0.3)`, marginBottom: '1.5rem' }}>
                 <span style={{ fontFamily: T.fontMono, fontSize: '0.6875rem', fontWeight: 500, letterSpacing: '0.15em', textTransform: 'uppercase', color: T.accentDark }}>{item.label}</span>
                 <span style={{ fontFamily: T.fontBody, fontSize: '0.9375rem', fontWeight: 300, color: T.muted }}>{item.val}</span>
@@ -643,7 +679,7 @@ function Contact() {
         <FadeUp delay={0.2}>
           {success ? (
             <div style={{ padding: '1.5rem', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 4, background: 'rgba(99,102,241,0.08)', color: T.accentDark, fontFamily: T.fontMono, fontSize: '0.875rem', letterSpacing: '0.04em' }}>
-              <Check size={16} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 6 }} /> Thank you! We'll be in touch within 24 hours.
+              <Check size={16} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 6 }} /> Thank you! Your enquiry has been sent to our support team.
             </div>
           ) : (
             <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -665,9 +701,12 @@ function Contact() {
                 {errors.message && <p style={{ fontFamily: T.fontMono, fontSize: '0.75rem', color: '#e07070', marginTop: '0.375rem' }}>{errors.message}</p>}
               </div>
               <div className="form-actions" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.25rem' }}>
-                <HoverButton primary type="submit">Send Inquiry<Send size={16} /></HoverButton>
+                <HoverButton primary type="submit" disabled={isSubmitting}>{isSubmitting ? 'Sending...' : 'Send Inquiry'}<Send size={16} /></HoverButton>
                 <span style={{ fontFamily: T.fontMono, fontSize: '0.6875rem', color: T.faintLow }}>We reply within 24h</span>
               </div>
+              {submitError && (
+                <p style={{ fontFamily: T.fontMono, fontSize: '0.75rem', color: '#e07070' }}>{submitError}</p>
+              )}
             </form>
           )}
         </FadeUp>
@@ -775,7 +814,7 @@ function Footer() {
       <span style={{ fontFamily: T.fontDisplay, fontSize: '1rem', fontWeight: 600, color: T.muted }}>Ralix<span style={{ color: T.accent, fontStyle: 'italic' }}> Technologies</span></span>
       <span style={{ fontFamily: T.fontMono, fontSize: '0.6875rem', fontWeight: 300, color: T.faintLow, letterSpacing: '0.06em' }}>© 2025 Ralix Technologies. All rights reserved.</span>
       <div style={{ display: 'flex', gap: '1.5rem' }}>
-        {[{ Icon: X, href: 'https://x.com', label: 'X' }, { Icon: Globe, href: 'https://ralixtechnologies.com', label: 'Website' }, { Icon: ExternalLink, href: 'mailto:hello@ralixtechnologies.com', label: 'Email' }].map(({ Icon, href, label }) => (
+        {[{ Icon: X, href: 'https://x.com', label: 'X' }, { Icon: Globe, href: 'https://ralixtechnologies.com', label: 'Website' }, { Icon: ExternalLink, href: 'mailto:support@ayanatechnologies.in', label: 'Email' }].map(({ Icon, href, label }) => (
           <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} style={{ color: T.faintLow, transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = T.accent} onMouseLeave={e => e.currentTarget.style.color = T.faintLow}><Icon size={18} /></a>
         ))}
       </div>
