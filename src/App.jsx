@@ -761,12 +761,9 @@ function Testimonials() {
             <div style={{ padding: '2rem', border: T.border, borderRadius: 8, background: T.surface, height: '100%', display: 'flex', flexDirection: 'column', boxShadow: '0 1px 3px rgba(15,23,42,0.05)' }}>
               <Quote size={24} color={T.accent} style={{ opacity: 0.4, marginBottom: '1rem' }} />
               <p style={{ fontFamily: T.fontBody, fontSize: '0.9375rem', fontWeight: 300, color: T.muted, lineHeight: 1.7, flex: 1, marginBottom: '1.5rem' }}>&ldquo;{t.quote}&rdquo;</p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem' }}>
-                <img src={t.avatar} alt={t.name} style={{ width: 44, height: 44, borderRadius: '50%', objectFit: 'cover', border: T.border }} />
-                <div>
-                  <p style={{ fontFamily: T.fontBody, fontSize: '0.875rem', fontWeight: 500, color: T.text }}>{t.name}</p>
-                  <p style={{ fontFamily: T.fontMono, fontSize: '0.625rem', color: T.accentDark, letterSpacing: '0.08em', textTransform: 'uppercase' }}>{t.role}</p>
-                </div>
+              <div>
+                <p style={{ fontFamily: T.fontBody, fontSize: '0.875rem', fontWeight: 500, color: T.text }}>{t.name}</p>
+                <p style={{ fontFamily: T.fontMono, fontSize: '0.625rem', color: T.accentDark, letterSpacing: '0.08em', textTransform: 'uppercase' }}>{t.role}</p>
               </div>
               <div style={{ display: 'flex', gap: 4, marginTop: '1rem' }}>
                 {[1,2,3,4,5].map(n => <Star key={n} size={12} fill={T.accent} color={T.accent} />)}
