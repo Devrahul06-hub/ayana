@@ -278,7 +278,7 @@ const processSteps = [
 ]
 
 const testimonials = [
-  { quote: 'Ralix Technologies transformed our SaaS onboarding. Conversion jumped 38% in the first month.', name: 'Sarah Chen', role: 'CEO, NeonPay', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80' },
+  { quote: 'Ayana Technologies LLP transformed our SaaS onboarding. Conversion jumped 38% in the first month.', name: 'Sarah Chen', role: 'CEO, NeonPay', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80' },
   { quote: 'The team delivered a stunning mobile experience. Our App Store rating went from 3.2 to 4.8.', name: 'Marcus Webb', role: 'Founder, PulseFit', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80' },
   { quote: 'Finally, a studio that speaks both design and engineering. Zero handoff friction.', name: 'Elena Rossi', role: 'Product Lead, WorkflowOS', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&q=80' },
 ]
@@ -348,7 +348,7 @@ function Nav() {
       >
         <a href="#" onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }} style={{ textDecoration: 'none', minWidth: 0, flex: '0 0 auto' }}>
           <span className="nav-brand">
-            Ralix<span className="nav-brand-accent"> Technologies</span>
+            Ayana<span className="nav-brand-accent"> Technologies LLP</span>
           </span>
         </a>
 
@@ -811,10 +811,10 @@ function BackToTop() {
 function Footer() {
   return (
     <footer className="footer-inner section-pad page-section" style={{ borderTop: T.border, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-      <span style={{ fontFamily: T.fontDisplay, fontSize: '1rem', fontWeight: 600, color: T.muted }}>Ralix<span style={{ color: T.accent, fontStyle: 'italic' }}> Technologies</span></span>
-      <span style={{ fontFamily: T.fontMono, fontSize: '0.6875rem', fontWeight: 300, color: T.faintLow, letterSpacing: '0.06em' }}>© 2025 Ralix Technologies. All rights reserved.</span>
+      <span style={{ fontFamily: T.fontDisplay, fontSize: '1rem', fontWeight: 600, color: T.muted }}>Ayana<span style={{ color: T.accent, fontStyle: 'italic' }}> Technologies LLP</span></span>
+      <span style={{ fontFamily: T.fontMono, fontSize: '0.6875rem', fontWeight: 300, color: T.faintLow, letterSpacing: '0.06em' }}>© 2025 Ayana Technologies LLP. All rights reserved.</span>
       <div style={{ display: 'flex', gap: '1.5rem' }}>
-        {[{ Icon: X, href: 'https://x.com', label: 'X' }, { Icon: Globe, href: 'https://ralixtechnologies.com', label: 'Website' }, { Icon: ExternalLink, href: 'mailto:support@ayanatechnologies.in', label: 'Email' }].map(({ Icon, href, label }) => (
+        {[{ Icon: X, href: 'https://x.com', label: 'X' }, { Icon: Globe, href: 'https://ayanatechnologies.in', label: 'Website' }, { Icon: ExternalLink, href: 'mailto:support@ayanatechnologies.in', label: 'Email' }].map(({ Icon, href, label }) => (
           <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} style={{ color: T.faintLow, transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = T.accent} onMouseLeave={e => e.currentTarget.style.color = T.faintLow}><Icon size={18} /></a>
         ))}
       </div>
