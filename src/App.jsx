@@ -268,9 +268,9 @@ const processSteps = [
 ]
 
 const testimonials = [
-  { quote: 'Ayana Technologies LLP transformed our SaaS onboarding. Conversion jumped 38% in the first month.', name: 'Sarah Chen', role: 'CEO, NeonPay', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80' },
-  { quote: 'The team delivered a stunning mobile experience. Our App Store rating went from 3.2 to 4.8.', name: 'Marcus Webb', role: 'Founder, PulseFit', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80' },
-  { quote: 'Finally, a studio that speaks both design and engineering. Zero handoff friction.', name: 'Elena Rossi', role: 'Product Lead, WorkflowOS', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&q=80' },
+  { quote: 'Ayana Technologies built our HRMS from the ground up — clean, mobile-friendly, and exactly what our team needed. Exceptional work from start to finish.', name: 'Shubham Adhude', role: 'Founder, Nexus Shubh Services', avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&q=80' },
+  { quote: 'They understood our security business instantly and delivered a professional web presence that brings in real enquiries every week.', name: 'Rajiv Menon', role: 'Director, Global CCTV Solutions', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&q=80' },
+  { quote: 'Our construction business finally looks as strong online as it does on-site. The team was responsive, fast, and detail-oriented.', name: 'Arvind Patil', role: 'Owner, Chandramukhi Sales', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&q=80' },
 ]
 
 const whyPoints = [
