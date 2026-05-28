@@ -173,6 +173,29 @@ function scrollTo(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 }
 
+function scrollToTopWithEffect(duration = 700) {
+  const start = window.scrollY
+  if (start <= 0) return
+
+  const startTime = performance.now()
+
+  // Cubic ease-out for a soft, premium-feeling deceleration.
+  const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3)
+
+  const tick = (now) => {
+    const elapsed = now - startTime
+    const progress = Math.min(elapsed / duration, 1)
+    const eased = easeOutCubic(progress)
+    window.scrollTo(0, Math.round(start * (1 - eased)))
+
+    if (progress < 1) {
+      window.requestAnimationFrame(tick)
+    }
+  }
+
+  window.requestAnimationFrame(tick)
+}
+
 const ICON_SIZE = 36
 const iconProps = { size: ICON_SIZE, strokeWidth: 1.2, color: T.accent }
 
@@ -335,7 +358,7 @@ function Nav() {
           transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
       >
-        <a href="#" onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }} style={{ textDecoration: 'none', minWidth: 0, flex: '0 0 auto' }}>
+        <a href="#" onClick={e => { e.preventDefault(); scrollToTopWithEffect() }} style={{ textDecoration: 'none', minWidth: 0, flex: '0 0 auto' }}>
           <span className="nav-brand">
             Ayana<span className="nav-brand-accent"> Technologies LLP</span>
           </span>
