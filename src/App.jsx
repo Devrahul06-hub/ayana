@@ -1,5 +1,6 @@
 import { motion, useScroll, useSpring, useTransform, useInView, AnimatePresence } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import {
   Monitor, Smartphone, Layers, LayoutGrid, Code2, Globe, Box, Cloud,
   Lightbulb, Server, AppWindow, Brain, Rocket, Sparkles, Zap, Shield,
@@ -262,11 +263,11 @@ function SectionLabel({ text }) {
 }
 
 const services = [
-  { num: '01', title: 'AI Development', desc: 'Intelligent AI-powered solutions that automate workflows, personalize experiences, and drive business growth.' },
-  { num: '02', title: 'Custom Software Development', desc: 'Tailored software solutions precisely aligned to your workflows, goals, and operational needs.' },
-  { num: '03', title: 'SaaS Development', desc: 'Robust SaaS platforms engineered for scale, speed, and long-term product growth.' },
-  { num: '04', title: 'Mobile Applications', desc: 'Fast, intuitive iOS & Android experiences tailored for real user behaviour and delight.' },
-  { num: '05', title: 'Cloud Application Development', desc: 'Cloud-native apps designed for resilience, seamless scaling, and reliable deployment.' },
+  { num: '01', title: 'AI Development', slug: 'ai-development', desc: 'Intelligent AI-powered solutions that automate workflows, personalize experiences, and drive business growth.' },
+  { num: '02', title: 'Custom Software Development', slug: 'custom-software-development', desc: 'Tailored software solutions precisely aligned to your workflows, goals, and operational needs.' },
+  { num: '03', title: 'SaaS Development', slug: 'saas-development', desc: 'Robust SaaS platforms engineered for scale, speed, and long-term product growth.' },
+  { num: '04', title: 'Mobile Applications', slug: 'mobile-applications', desc: 'Fast, intuitive iOS & Android experiences tailored for real user behaviour and delight.' },
+  { num: '05', title: 'Cloud Application Development', slug: 'cloud-application-development', desc: 'Cloud-native apps designed for resilience, seamless scaling, and reliable deployment.' },
 ]
 
 const stats = [
@@ -428,10 +429,10 @@ function Hero() {
       <motion.div className="hero-inner">
         <div className="hero-copy">
           <motion.h1 className="hero-title" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}>
-            We Help Businesses <GradientAccent>Scale</GradientAccent><br />To New Heights
+            Websites, Apps &amp; SaaS<br />That <GradientAccent>Win Customers</GradientAccent>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.45 }} className="hero-desc">
-            From standout websites and mobile apps to custom and SaaS product design — we craft premium experiences with modern UI and intentional motion.
+            Ayana Technologies is a global design and development studio — headquartered in Pune, India. We build premium websites, mobile apps, SaaS products, cloud services, and custom software for startups and growing businesses worldwide.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.52 }} className="hero-pills">
             {techPills.map(p => <span key={p} className="hero-pill">{p}</span>)}
@@ -516,7 +517,9 @@ function ServiceCard({ svc, delay }) {
       <div style={{ marginBottom: '1.25rem', opacity: hov ? 1 : 0.65, transition: 'opacity 0.3s' }}><ServiceIcon name={svc.title} /></div>
       <h3 style={{ fontFamily: T.fontDisplay, fontSize: '1.375rem', fontWeight: 600, color: T.text, marginBottom: '0.875rem', lineHeight: 1.2 }}>{svc.title}</h3>
       <p style={{ fontFamily: T.fontBody, fontSize: '0.9rem', fontWeight: 300, color: T.muted, lineHeight: 1.7 }}>{svc.desc}</p>
-      <motion.div animate={{ rotate: hov ? 45 : 0 }} transition={{ duration: 0.25 }} style={{ position: 'absolute', bottom: '2.25rem', right: '2.25rem', width: 36, height: 36, background: hov ? T.gradient : T.surfaceSubtle, border: `1px solid ${hov ? 'transparent' : T.border}`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: hov ? T.onAccent : T.accent, fontSize: '0.875rem', transition: 'all 0.3s', boxShadow: hov ? T.shadowGlow : T.shadowSm }}><ArrowRight size={14} /></motion.div>
+      <Link to={`/services/${svc.slug}`} style={{ textDecoration: 'none', position: 'absolute', bottom: '2.25rem', right: '2.25rem' }}>
+        <motion.div animate={{ rotate: hov ? 45 : 0 }} transition={{ duration: 0.25 }} style={{ width: 36, height: 36, background: hov ? T.gradient : T.surfaceSubtle, border: `1px solid ${hov ? 'transparent' : T.border}`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: hov ? T.onAccent : T.accent, fontSize: '0.875rem', transition: 'all 0.3s', boxShadow: hov ? T.shadowGlow : T.shadowSm }}><ArrowRight size={14} /></motion.div>
+      </Link>
     </motion.article>
   )
 }
@@ -680,7 +683,7 @@ function Contact() {
         <FadeUp delay={0.1}>
           <div className="contact-aside" style={{ position: 'sticky', top: '7rem' }}>
             <p style={{ fontFamily: T.fontBody, fontSize: '1rem', fontWeight: 300, color: T.muted, lineHeight: 1.75, marginBottom: '2.5rem' }}>Tell us what you're building and we'll schedule a free 30-minute discovery call to explore the scope together.</p>
-            {[{ label: 'Email', val: 'support@ayanatechnologies.in' }, { label: 'Response time', val: 'Within 24 hours' }, { label: 'Based in', val: 'Global · Remote-first' }].map(item => (
+            {[{ label: 'Email', val: 'support@ayanatechnologies.in' }, { label: 'Response time', val: 'Within 24 hours' }, { label: 'Headquarters', val: 'Pune, India' }, { label: 'Reach', val: 'Global · Remote-first' }].map(item => (
               <div key={item.label} style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', paddingLeft: '1rem', borderLeft: `2px solid rgba(99,102,241,0.3)`, marginBottom: '1.5rem' }}>
                 <span style={{ fontFamily: T.fontMono, fontSize: '0.6875rem', fontWeight: 500, letterSpacing: '0.15em', textTransform: 'uppercase', color: T.accentDark }}>{item.label}</span>
                 <span style={{ fontFamily: T.fontBody, fontSize: '0.9375rem', fontWeight: 300, color: T.muted }}>{item.val}</span>
