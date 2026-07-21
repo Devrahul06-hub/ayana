@@ -1,0 +1,35 @@
+---
+import { processSteps } from '../data/content.ts';
+
+const icons = [
+  'M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm0 0v2m0 16v2m8-10h2M2 12H0m16.24-6.24 1.42-1.42M4.34 19.66l1.42-1.42M19.66 19.66l-1.42-1.42M4.34 4.34 2.92 2.92',
+  'M12 2l9.09 9.09L12 22 2.91 11.09 12 2zM12 2v20M2.91 11.09h18.18',
+  'M16 18l2-2-6-6-6 6 2 2M8 6l2-2 2 2 2-2 2 2',
+  'M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z',
+];
+---
+
+<section id="process" class="section-pad page-section" style="border-top:1px solid rgba(15,23,42,0.08);">
+  <div class="fade-up">
+    <div style="margin-bottom:1.25rem;">
+      <span style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.4rem 1rem;border-radius:9999px;background:linear-gradient(135deg,rgba(99,102,241,0.1) 0%,rgba(139,92,246,0.08) 50%,rgba(6,182,212,0.1) 100%);border:1px solid rgba(15,23,42,0.08);font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#4f46e5;">
+        <span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 50%,#06b6d4 100%);"></span>
+        How We Work
+      </span>
+    </div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4vw,3.25rem);font-weight:600;line-height:1.12;color:#0b0f1a;letter-spacing:-0.02em;">A proven <em class="gradient-text" style="font-style:normal;">process</em></h2>
+  </div>
+
+  <div class="process-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3.5rem;">
+    {processSteps.map((step, i) => (
+      <div class={`fade-up delay-${i + 1}`} style="padding:2rem;border:1px solid rgba(15,23,42,0.08);border-radius:8px;background:#ffffff;height:100%;box-shadow:0 1px 3px rgba(15,23,42,0.05);">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:1.25rem;">
+          <path d={icons[i]} />
+        </svg>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;color:#4f46e5;margin-bottom:0.75rem;">{step.num}</p>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.125rem;font-weight:600;color:#0b0f1a;margin-bottom:0.5rem;">{step.title}</h3>
+        <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.875rem;font-weight:300;color:#5b6478;line-height:1.65;">{step.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>

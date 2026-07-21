@@ -1,0 +1,56 @@
+---
+import { techPills, stats } from '../data/theme.ts';
+---
+
+<section class="hero-section">
+  <div class="hero-bg-orb hero-bg-orb-1"></div>
+  <div class="hero-bg-orb hero-bg-orb-2"></div>
+  <div class="hero-bg-orb hero-bg-orb-3"></div>
+  <div style="position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(15,23,42,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,0.06) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 20%,transparent 100%);mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 20%,transparent 100%);"></div>
+
+  <div class="hero-eyebrow">
+    <span class="hero-eyebrow-pill"><span class="hero-eyebrow-dot"></span></span>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <h1 class="hero-title">
+        Websites, Apps &amp; SaaS<br />That <em class="gradient-text" style="font-style:normal;">Win Customers</em>
+      </h1>
+      <p class="hero-desc">
+        Ayana Technologies is a global design and development studio — headquartered in Pune, India. We build premium websites, mobile apps, SaaS products, cloud services, and custom software for startups and growing businesses worldwide.
+      </p>
+      <div class="hero-pills">
+        {techPills.map(p => <span class="hero-pill">{p}</span>)}
+      </div>
+      <div class="hero-cta">
+        <a href="#contact" class="hero-btn btn-primary">Start Your Project <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display:inline"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <a href="#work" class="hero-btn btn-secondary">View Our Work</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      {stats.map(s => (
+        <div class="hero-stat-card">
+          <p class="hero-stat-value">{s.value}</p>
+          <p class="hero-stat-label">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="hero-footer">
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <div style="width:32px;height:1px;background:rgba(15,23,42,0.08);position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;bottom:0;width:100%;background:#6366f1;animation:slideX 2.4s ease-in-out infinite;left:-100%;"></div>
+      </div>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;letter-spacing:0.18em;text-transform:uppercase;color:#7c8599;">Scroll to explore</span>
+    </div>
+    <div class="hero-footer-marquee">
+      <div style="display:flex;gap:2.5rem;animation:marquee 20s linear infinite;font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;letter-spacing:0.12em;text-transform:uppercase;color:#9aa3b5;white-space:nowrap;">
+        {['Website Design','·','Mobile Apps','·','SaaS Design','·','Custom Products','·','Website Design','·','Mobile Apps','·','SaaS Design','·','Custom Products'].map((t, i) => (
+          <span style={t === '·' ? 'color:#6366f1;' : ''}>{t}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.tsx';
+import Hero from '../components/Hero.astro';
+import MarqueeBand from '../components/MarqueeBand.astro';
+import Services from '../components/Services.astro';
+import Why from '../components/Why.astro';
+import Process from '../components/Process.astro';
+import Work from '../components/Work.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Contact from '../components/Contact.tsx';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <div style="background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(139,92,246,0.08) 50%, rgba(6,182,212,0.1) 100%), radial-gradient(ellipse 90% 60% at 100% 0%, rgba(99,102,241,0.12) 0%, transparent 55%), #f4f6fb; color: #0b0f1a; min-height: 100vh;">
+    <Nav client:load />
+    <Hero />
+    <MarqueeBand />
+    <Services />
+    <Why />
+    <Process />
+    <Work />
+    <Testimonials />
+    <Contact client:load />
+    <Footer />
+  </div>
+</Layout>
