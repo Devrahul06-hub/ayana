@@ -3,16 +3,16 @@ import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 
 const T = {
-  accent: '#6366f1',
-  muted: '#5b6478',
-  text: '#0b0f1a',
-  border: 'rgba(15,23,42,0.08)',
-  gradient: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%)',
-  onAccent: '#ffffff',
-  shadowCard: '0 8px 32px -8px rgba(99,102,241,0.18), 0 4px 16px -4px rgba(15,23,42,0.06)',
-  shadowSm: '0 2px 10px rgba(15,23,42,0.05)',
-  shadowGlow: '0 12px 40px -8px rgba(99,102,241,0.45)',
-  bgRgb: '244,246,251',
+  accent: '#22D3EE',
+  muted: '#8892A8',
+  text: '#EDF0FF',
+  border: 'rgba(255,255,255,0.07)',
+  gradient: 'linear-gradient(135deg, #22D3EE 0%, #818CF8 100%)',
+  onAccent: '#08091A',
+  shadowCard: '0 8px 32px -8px rgba(34,211,238,0.15), 0 4px 16px -4px rgba(0,0,0,0.5)',
+  shadowSm: '0 2px 10px rgba(0,0,0,0.3)',
+  shadowGlow: '0 12px 40px -8px rgba(34,211,238,0.4)',
+  bgRgb: '8,9,26',
   fontBody: "'Plus Jakarta Sans', sans-serif",
   fontDisplay: "'Space Grotesk', sans-serif",
   fontMono: "'IBM Plex Mono', monospace",
@@ -70,9 +70,9 @@ export default function Nav() {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           padding: scrolled ? '0.75rem 1.5rem' : '0.875rem 1.75rem',
           borderRadius: T.radiusPill,
-          border: `1px solid ${scrolled ? T.border : 'transparent'}`,
+          border: `1px solid ${scrolled ? 'rgba(255,255,255,0.09)' : 'rgba(255,255,255,0.05)'}`,
           backdropFilter: 'blur(20px) saturate(1.4)',
-          background: scrolled ? 'rgba(255,255,255,0.88)' : 'rgba(255,255,255,0.55)',
+          background: scrolled ? `rgba(${T.bgRgb},0.92)` : `rgba(${T.bgRgb},0.5)`,
           boxShadow: scrolled ? T.shadowCard : T.shadowSm,
           transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
@@ -92,16 +92,16 @@ export default function Nav() {
             >{l.label}</a>
           ))}
           <a href="#contact" style={{
-            fontFamily: T.fontBody, fontSize: '0.875rem', fontWeight: 600,
+            fontFamily: T.fontBody, fontSize: '0.875rem', fontWeight: 700,
             padding: '0.65rem 1.35rem',
             background: T.gradient, color: T.onAccent,
             textDecoration: 'none', borderRadius: T.radiusPill,
-            boxShadow: '0 4px 16px rgba(99,102,241,0.35)',
+            boxShadow: '0 4px 16px rgba(34,211,238,0.3)',
             transition: 'transform 0.2s, box-shadow 0.2s',
           }}
             onMouseEnter={e => { const el = e.target as HTMLAnchorElement; el.style.transform = 'translateY(-1px)'; el.style.boxShadow = T.shadowGlow }}
-            onMouseLeave={e => { const el = e.target as HTMLAnchorElement; el.style.transform = 'translateY(0)'; el.style.boxShadow = '0 4px 16px rgba(99,102,241,0.35)' }}
-          >Get in Touch</a>
+            onMouseLeave={e => { const el = e.target as HTMLAnchorElement; el.style.transform = 'translateY(0)'; el.style.boxShadow = '0 4px 16px rgba(34,211,238,0.3)' }}
+          >Book a call</a>
         </div>
 
         <button
@@ -144,8 +144,8 @@ export default function Nav() {
             <a
               href="#contact"
               onClick={() => setMenuOpen(false)}
-              style={{ padding: '0.875rem 2rem', border: `1px solid ${T.accent}`, color: T.accent, textDecoration: 'none', fontFamily: T.fontBody, fontSize: '0.8125rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
-            >Get in Touch</a>
+              style={{ padding: '0.875rem 2rem', border: `1px solid rgba(34,211,238,0.4)`, color: T.accent, textDecoration: 'none', fontFamily: T.fontBody, fontSize: '0.8125rem', letterSpacing: '0.1em', textTransform: 'uppercase', borderRadius: T.radiusPill }}
+            >Book a call</a>
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,12 +1,12 @@
 ---
-const items = ['Website Design', '·', 'Mobile Apps', '·', 'SaaS Interfaces', '·', 'Custom Products', '·', 'Motion Design', '·', 'UX Research', '·'];
+const items = ['AI Development', '·', 'LLM Integration', '·', 'SaaS Products', '·', 'Mobile Apps', '·', 'Cloud Infra', '·', 'Custom Software', '·'];
 const doubled = [...items, ...items];
 ---
 
-<div style="overflow:hidden;border-top:1px solid rgba(15,23,42,0.08);border-bottom:1px solid rgba(15,23,42,0.08);padding:1rem 0;background:linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(139,92,246,0.08) 50%, rgba(6,182,212,0.1) 100%);">
-  <div style="display:flex;gap:2.5rem;animation:marquee 28s linear infinite;font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#9aa3b5;white-space:nowrap;">
+<div style="overflow:hidden;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);padding:1rem 0;background:rgba(255,255,255,0.02);">
+  <div style="display:flex;gap:2.5rem;animation:marquee 30s linear infinite;font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#3D4560;white-space:nowrap;">
     {doubled.map((t, i) => (
-      <span style={t === '·' ? 'color:#6366f1;opacity:0.5;' : ''}>{t}</span>
+      <span style={t === '·' ? 'color:#22D3EE;opacity:0.4;' : ''}>{t}</span>
     ))}
   </div>
 </div>

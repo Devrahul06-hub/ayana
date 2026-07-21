@@ -6,26 +6,29 @@ import { techPills, stats } from '../data/theme.ts';
   <div class="hero-bg-orb hero-bg-orb-1"></div>
   <div class="hero-bg-orb hero-bg-orb-2"></div>
   <div class="hero-bg-orb hero-bg-orb-3"></div>
-  <div style="position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(15,23,42,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,0.06) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 20%,transparent 100%);mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 20%,transparent 100%);"></div>
+  <div style="position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 20%,transparent 100%);mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 20%,transparent 100%);"></div>
 
   <div class="hero-eyebrow">
-    <span class="hero-eyebrow-pill"><span class="hero-eyebrow-dot"></span></span>
+    <span class="hero-eyebrow-pill">
+      <span class="hero-eyebrow-dot"></span>
+      AI-native development studio · Pune, India
+    </span>
   </div>
 
   <div class="hero-inner">
     <div class="hero-copy">
       <h1 class="hero-title">
-        Websites, Apps &amp; SaaS<br />That <em class="gradient-text" style="font-style:normal;">Win Customers</em>
+        Your next product<br />should be <em class="gradient-text" style="font-style:normal;">AI-native.</em>
       </h1>
       <p class="hero-desc">
-        Ayana Technologies is a global design and development studio — headquartered in Pune, India. We build premium websites, mobile apps, SaaS products, cloud services, and custom software for startups and growing businesses worldwide.
+        Ayana engineers software where artificial intelligence is the foundation — not a feature bolted on after launch. Every product ships with intelligence baked into the architecture, from MVP to enterprise scale.
       </p>
       <div class="hero-pills">
         {techPills.map(p => <span class="hero-pill">{p}</span>)}
       </div>
       <div class="hero-cta">
-        <a href="#contact" class="hero-btn btn-primary">Start Your Project <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display:inline"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
-        <a href="#work" class="hero-btn btn-secondary">View Our Work</a>
+        <a href="#contact" class="hero-btn btn-primary">Book a free AI call <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display:inline"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <a href="#work" class="hero-btn btn-secondary">See our work</a>
       </div>
     </div>
     <div class="hero-stats">
@@ -40,15 +43,15 @@ import { techPills, stats } from '../data/theme.ts';
 
   <div class="hero-footer">
     <div style="display:flex;align-items:center;gap:0.75rem;">
-      <div style="width:32px;height:1px;background:rgba(15,23,42,0.08);position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;bottom:0;width:100%;background:#6366f1;animation:slideX 2.4s ease-in-out infinite;left:-100%;"></div>
+      <div style="width:32px;height:1px;background:rgba(255,255,255,0.08);position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;bottom:0;width:100%;background:#22D3EE;animation:slideX 2.4s ease-in-out infinite;left:-100%;"></div>
       </div>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;letter-spacing:0.18em;text-transform:uppercase;color:#7c8599;">Scroll to explore</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;letter-spacing:0.18em;text-transform:uppercase;color:#505A72;">Scroll to explore</span>
     </div>
     <div class="hero-footer-marquee">
-      <div style="display:flex;gap:2.5rem;animation:marquee 20s linear infinite;font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;letter-spacing:0.12em;text-transform:uppercase;color:#9aa3b5;white-space:nowrap;">
-        {['Website Design','·','Mobile Apps','·','SaaS Design','·','Custom Products','·','Website Design','·','Mobile Apps','·','SaaS Design','·','Custom Products'].map((t, i) => (
-          <span style={t === '·' ? 'color:#6366f1;' : ''}>{t}</span>
+      <div style="display:flex;gap:2.5rem;animation:marquee 20s linear infinite;font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;letter-spacing:0.12em;text-transform:uppercase;color:#505A72;white-space:nowrap;">
+        {['GPT-4','·','LangChain','·','Next.js','·','Python','·','React Native','·','AWS','·','GPT-4','·','LangChain','·','Next.js','·','Python','·','React Native','·','AWS'].map((t, i) => (
+          <span style={t === '·' ? 'color:#22D3EE;opacity:0.5;' : ''}>{t}</span>
         ))}
       </div>
     </div>

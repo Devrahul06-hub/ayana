@@ -6,8 +6,8 @@ interface Props {
 }
 
 const {
-  title = 'Ayana Technologies — Website, App & SaaS Design Studio, Global',
-  description = 'Global-based studio designing & building premium websites, mobile apps, SaaS products, cloud services, and custom software that convert. See our work and book a free consultation.',
+  title = 'Ayana Technologies — AI-Native Software Development Studio',
+  description = 'We build AI-native software where artificial intelligence is the foundation — not a feature bolted on later. Custom software, SaaS, mobile apps, and cloud infrastructure. Based in Pune, delivering globally.',
   canonicalUrl = 'https://ayanatechnologies.in/',
 } = Astro.props;
 ---
@@ -20,10 +20,10 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="website design, mobile app development, saas development, cloud services, custom software development, ui ux agency, premium web design, ayana technologies llp, pune web design" />
+    <meta name="keywords" content="AI development, custom software development, SaaS development, mobile app development, cloud infrastructure, AI-native software, LLM integration, Pune software company, ayana technologies llp" />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Ayana Technologies LLP" />
-    <meta name="theme-color" content="#f4f6fb" />
+    <meta name="theme-color" content="#08091A" />
     <link rel="canonical" href={canonicalUrl} />
 
     <meta property="og:type" content="website" />
@@ -36,7 +36,6 @@ const {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
-    <!-- Fonts load directly in <head> — no JavaScript needed -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -50,12 +49,12 @@ const {
       "email": "support@ayanatechnologies.in",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Global",
-        "addressRegion": "Pune",
+        "addressLocality": "Pune",
+        "addressRegion": "Maharashtra",
         "addressCountry": "IN"
       },
-      "description": "Global-based design and development studio building premium websites, mobile apps, SaaS products, cloud services, and custom software.",
-      "serviceType": ["Website Design","Mobile App Development","SaaS Development","Cloud Services","Custom Software Development"],
+      "description": "AI-native software development studio. We build software where artificial intelligence is the architecture — not an afterthought. Custom software, SaaS, mobile apps, and cloud infrastructure.",
+      "serviceType": ["AI Development","Custom Software Development","SaaS Development","Mobile App Development","Cloud Application Development"],
       "areaServed": "Worldwide",
       "foundingLocation": "Pune, India"
     }
@@ -65,7 +64,6 @@ const {
     <div id="scroll-bar"></div>
     <slot />
 
-    <!-- Scroll progress bar -->
     <script>
       const bar = document.getElementById('scroll-bar');
       window.addEventListener('scroll', () => {
@@ -74,7 +72,6 @@ const {
       }, { passive: true });
     </script>
 
-    <!-- Scroll-triggered fade-up animations -->
     <script>
       const observer = new IntersectionObserver(
         (entries) => entries.forEach(e => {
@@ -88,8 +85,7 @@ const {
       document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
 
-    <!-- Back-to-top button -->
-    <button id="back-top" aria-label="Back to top" style="display:none;position:fixed;bottom:2rem;right:2rem;z-index:80;width:44px;height:44px;border-radius:50%;border:1px solid rgba(15,23,42,0.08);background:#ffffff;color:#6366f1;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(15,23,42,0.1);">
+    <button id="back-top" aria-label="Back to top" style="display:none;position:fixed;bottom:2rem;right:2rem;z-index:80;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.1);background:#0F1629;color:#22D3EE;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.4);">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
     </button>
     <script>

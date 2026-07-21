@@ -2,28 +2,28 @@
 import { whyPoints, whyFeatures } from '../data/content.ts';
 ---
 
-<section id="studio" class="section-pad page-section" style="border-top:1px solid rgba(15,23,42,0.08);border-bottom:1px solid rgba(15,23,42,0.08);background:linear-gradient(135deg,rgba(99,102,241,0.1) 0%,rgba(139,92,246,0.08) 50%,rgba(6,182,212,0.1) 100%);">
+<section id="studio" class="section-pad page-section" style="border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);background:linear-gradient(135deg,rgba(34,211,238,0.05) 0%,rgba(129,140,248,0.04) 100%);">
   <div class="fade-up">
     <div style="margin-bottom:1.25rem;">
-      <span style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.4rem 1rem;border-radius:9999px;background:linear-gradient(135deg,rgba(99,102,241,0.1) 0%,rgba(139,92,246,0.08) 50%,rgba(6,182,212,0.1) 100%);border:1px solid rgba(15,23,42,0.08);font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#4f46e5;">
-        <span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 50%,#06b6d4 100%);"></span>
-        Why Choose Us
+      <span style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.4rem 1rem;border-radius:9999px;background:linear-gradient(135deg,rgba(34,211,238,0.12) 0%,rgba(129,140,248,0.08) 100%);border:1px solid rgba(34,211,238,0.2);font-family:'IBM Plex Mono',monospace;font-size:0.6875rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#22D3EE;">
+        <span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#22D3EE 0%,#818CF8 100%);"></span>
+        Why Ayana
       </span>
     </div>
-    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4vw,3.25rem);font-weight:600;line-height:1.12;color:#0b0f1a;letter-spacing:-0.02em;margin-bottom:0.5rem;">Design quality that feels <em class="gradient-text" style="font-style:normal;">premium</em></h2>
-    <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:300;color:#5b6478;line-height:1.75;max-width:480px;">at every single touchpoint, from first impression to final delivery.</p>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4vw,3.25rem);font-weight:600;line-height:1.12;color:#EDF0FF;letter-spacing:-0.02em;margin-bottom:0.5rem;">The <em class="gradient-text" style="font-style:normal;">AI-first</em> difference</h2>
+    <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:300;color:#8892A8;line-height:1.75;max-width:480px;">Why AI-native products outperform retrofitted ones — and why that matters for your roadmap.</p>
   </div>
 
   <div class="why-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:4rem;align-items:start;">
     <div style="display:flex;flex-direction:column;gap:2rem;">
       {whyPoints.map((p, i) => (
-        <div class={`fade-up delay-${i + 1}`} style={`display:flex;gap:1.5rem;align-items:flex-start;padding-bottom:${i < whyPoints.length - 1 ? '2rem' : '0'};border-bottom:${i < whyPoints.length - 1 ? '1px solid rgba(15,23,42,0.08)' : 'none'};`}>
-          <div style="flex-shrink:0;width:40px;height:40px;background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 50%,#06b6d4 100%);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#ffffff;margin-top:2px;box-shadow:0 4px 12px rgba(99,102,241,0.3);">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l9 7-9 7-9-7 9-7zM12 12l9 7M12 12l-9 7"/></svg>
+        <div class={`fade-up delay-${i + 1}`} style={`display:flex;gap:1.5rem;align-items:flex-start;padding-bottom:${i < whyPoints.length - 1 ? '2rem' : '0'};border-bottom:${i < whyPoints.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none'};`}>
+          <div style="flex-shrink:0;width:40px;height:40px;background:linear-gradient(135deg,#22D3EE 0%,#818CF8 100%);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#08091A;margin-top:2px;box-shadow:0 4px 12px rgba(34,211,238,0.3);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <div>
-            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:500;color:#0b0f1a;margin-bottom:0.375rem;">{p.title}</p>
-            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.875rem;font-weight:300;color:#5b6478;line-height:1.65;">{p.desc}</p>
+            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:500;color:#EDF0FF;margin-bottom:0.375rem;">{p.title}</p>
+            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.875rem;font-weight:300;color:#8892A8;line-height:1.65;">{p.desc}</p>
           </div>
         </div>
       ))}
@@ -32,11 +32,11 @@ import { whyPoints, whyFeatures } from '../data/content.ts';
     <div class="why-features-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
       {whyFeatures.map((f, i) => (
         <div class={`why-feat fade-up delay-${i + 2}`} style={f.wide ? 'grid-column:1/-1;' : ''}>
-          <div style="margin-bottom:1rem;color:#6366f1;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2l9 7-9 7-9-7 9-7zM3 14l9 7 9-7"/></svg>
+          <div style="margin-bottom:1rem;color:#22D3EE;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.875rem;font-weight:500;color:#0b0f1a;margin-bottom:0.5rem;">{f.title}</p>
-          <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.8125rem;font-weight:300;color:#5b6478;line-height:1.65;">{f.text}</p>
+          <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.875rem;font-weight:500;color:#EDF0FF;margin-bottom:0.5rem;">{f.title}</p>
+          <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.8125rem;font-weight:300;color:#8892A8;line-height:1.65;">{f.text}</p>
         </div>
       ))}
     </div>
