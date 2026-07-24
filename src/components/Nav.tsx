@@ -77,7 +77,12 @@ export default function Nav() {
           transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
       >
-        <a href="/" style={{ textDecoration: 'none', minWidth: 0, flex: '0 0 auto' }}>
+        <a href="/" style={{ textDecoration: 'none', minWidth: 0, flex: '0 0 auto', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="28" height="28" aria-hidden="true" style={{ flexShrink: 0 }}>
+            <line x1="100" y1="22" x2="18" y2="185" stroke="#EDF0FF" strokeWidth="28" strokeLinecap="round"/>
+            <line x1="100" y1="22" x2="182" y2="185" stroke="#22D3EE" strokeWidth="28" strokeLinecap="round"/>
+            <line x1="48" y1="122" x2="130" y2="122" stroke="#EDF0FF" strokeWidth="22" strokeLinecap="round"/>
+          </svg>
           <span className="nav-brand">
             Ayana<span className="nav-brand-accent"> Technologies LLP</span>
           </span>
